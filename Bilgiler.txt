@@ -1,0 +1,41 @@
+RAPORT
+https://github.com/LironEr/cypress-mochawesome-reporter/blob/master/README.md
+1-install cypress-mochawesome-reporter
+
+npm i --save-dev cypress-mochawesome-reporter
+
+2-Change cypress reporter & setup hooks
+
+Edit config file (cypress.config.js by default)
+
+const { defineConfig } = require('cypress');
+
+module.exports = defineConfig({
+  reporter: 'cypress-mochawesome-reporter',
+  e2e: {
+    setupNodeEvents(on, config) {
+      require('cypress-mochawesome-reporter/plugin')(on);
+    },
+  },
+});
+
+3-Add to cypress/support/e2e.js
+
+import 'cypress-mochawesome-reporter/register';
+
+4-run cypress  diyoruz(npx cypress run)
+
+5-istersek reportOptions ekleyebiliriz
+reporterOptions: {
+    overwrite: true,   //*Deger true olursa  eski html dosyasini siler ve yenisini olusturur.False olursa index001.html seklinde diger dosyalari olusturur
+    charts: true,  //*Testlerin fail ve pass durumlariyla ilgili rapora bir grafik ekler
+    reportPageTitle: 'Toolshop Project Report',  //*rapor basliginin degistirilmesini saglar
+    // reportFilename: "[status]_[datetime]-[name]-report",
+    // timestamp: "longDate",
+    // embeddedScreenshots: true,
+    // inlineAssets: true,
+    // saveAllAttempts: false,
+    // ignoreVideos: true,
+    // videoOnFailOnly: false
+  },
+    

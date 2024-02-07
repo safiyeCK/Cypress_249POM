@@ -1,0 +1,28 @@
+{
+    "firstName":"Ali",
+    "lastName":"Can",
+    "dateOfBirth":"1980-12-12",
+    "address":"Bağlik mahallesi, Tavşan sokak, No:21",
+    "postCode":"50500",
+    "city":"Zonguldak",
+    "state":"Eregli",
+    "country":"Turkey",
+    "phone":"05555555555",
+    "email":"faker12345678@faker.com",
+    "password":"123456",
+    "password5characters":"12345",
+    "passwordMinLengthErrorMessage": " Password must be minimal 6 characters long. ",
+    "errorMessage" :"A customer with this email address already exists.",
+    "requiredFirstNameMessage":"First name is required.",
+    "requiredLastNameMessage":"Last name is required.",
+    "requiredDateOfBirthMessage":"Date of Birth is required.",
+    "requiredAddressMessage":"Address is required.",
+    "requiredPostCodeMessage":"Postcode is required.",
+    "requiredCityMessage":"City is required.",
+    "requiredStateMessage":"State is required.",
+    "requiredCountryMessage":"Country is required.",
+    "requiredPhoneMessage":"Phone is required.",
+    "requiredEmailMessage":"E-mail is required.",
+    "requiredPasswordMessage":"Password is required."
+    
+}
