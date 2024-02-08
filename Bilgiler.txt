@@ -1,8 +1,54 @@
+Cypress Nedir?
+• Javascript tabanlı bir test aracıdır.
+• Web uygulamalarının test edilmesi için kullanılır.
+• Node.js platformunda çalışır.
+• Test senaryoları koşulabilir ve hata ayıklaması yapılabilir.
+
+Cypress’in Özellikleri 
+  • Otomatik bekleme
+  • Hata ayıklama 
+  • Çeşitli test türlerini destekleme
+  • Zaman yolculuğu
+  
+  Cypress Nasıl Çalışır?
+• Framework kurmak için manuel olarak paket indirmeye gerek yok.
+• Cypress, tüm bu paketleri birleştirir ve bu zorlu işleri kullanıcı adına 
+gerçekleştirir.
+
+Cypress’i Farklı Kılan 7 Özellik
+• Cypress, Selenium kullanmaz
+• Uçtan uca test (E2E Test) odaklıdır
+• Web tarayıcısında çalışan her şeyi test edebilir
+• Cypress testleri sadece JavaScript ile yazılır
+• Gerekli tüm paketler bir aradadır
+• Developerlar ve QA mühendisleri için hazırlanmıştır
+• Çok çok daha hızlı Çalışır
+
+Cypress’in Artıları ve Eksileri
+ARTILARI
+• Tam Frameworktür
+• Hızlıdır
+• Az programlama bilgisi gerekir
+• API testleri yapılabilir
+
+EKSİLERİ
+• IE ve Safari desteklenmez
+• Mobil otomasyonu desteklemez
+• Tek URL ve tek sekme kullanır
+• Iframe ile pek iyi anlaşamaz
+
+Neden Cypress?
+• Manuel tester’lıktan otomasyon tester’lığa geçiş için.
+• Alandaki bilginizi güncel tutmak ve trenti yakalamak için.
+• Otomasyon alanında Cypress popüler bir araç olduğu için
+
+
+
 RAPORT
 https://github.com/LironEr/cypress-mochawesome-reporter/blob/master/README.md
 1-install cypress-mochawesome-reporter
 
-npm i --save-dev cypress-mochawesome-reporter
+****    npm i --save-dev cypress-mochawesome-reporter
 
 2-Change cypress reporter & setup hooks
 
@@ -11,21 +57,21 @@ Edit config file (cypress.config.js by default)
 const { defineConfig } = require('cypress');
 
 module.exports = defineConfig({
-  reporter: 'cypress-mochawesome-reporter',
+ *** reporter: 'cypress-mochawesome-reporter',
   e2e: {
     setupNodeEvents(on, config) {
-      require('cypress-mochawesome-reporter/plugin')(on);
+   ***   require('cypress-mochawesome-reporter/plugin')(on);
     },
   },
 });
 
 3-Add to cypress/support/e2e.js
 
-import 'cypress-mochawesome-reporter/register';
+*** import 'cypress-mochawesome-reporter/register';
 
 4-run cypress  diyoruz(npx cypress run)
 
-5-istersek reportOptions ekleyebiliriz
+5-istersek reportOptions ekleyebiliriz cypress config js de raporter in altina ekleyebiliriz
 reporterOptions: {
     overwrite: true,   //*Deger true olursa  eski html dosyasini siler ve yenisini olusturur.False olursa index001.html seklinde diger dosyalari olusturur
     charts: true,  //*Testlerin fail ve pass durumlariyla ilgili rapora bir grafik ekler
@@ -38,4 +84,420 @@ reporterOptions: {
     // ignoreVideos: true,
     // videoOnFailOnly: false
   },
-    
+
+Cypress da apor icin bakabilecegimiz webadresi
+https://docs.cypress.io/plugins      cypress-mochawesome-reporter
+https://github.com/LironEr/cypress-mochawesome-reporter/blob/master/README.md
+https://www.npmjs.com/package/mochawesome-report-generator
+
+  Cypress 
+Gerekli Kurulumlar
+
+1- Tarayıcılar • Chrome • Firefox
+
+2- Node.Js • LTS sürümü indirilmelidir
+
+3- Git Bash
+• Komutları yönetmek için kullanacağımız terminal araçtır.
+• Git kurulumu ile birlikte gelmektedir
+
+4- VS Code
+• Test projemizi oluşturup yönetmek için kullanacağımız IDE.
+
+5- Cypress
+• Boş bir klasör oluşturun ve VS Code ile klasörü açın
+• VS Code Terminal’de npm init yazın ve onaylayın
+• description için “Cypress Automation Framework” yazın
+• author için “Adınızı ve Soyadınızı” yazın
+• Diğer seçenekleri boş bırakarak devam edin
+• npm install cypress --save-dev yazın ve onaylayın
+• npx cypress open yazın ve onaylayın
+
+6- Cypress Güncelleme
+• Güncel versiyon çıktığında Test Runner’da görünür
+• npx cypress version yazarak mevcut versiyon öğrenilebilir
+• npm install -D cypress@version komutunun version kısmına kurulmak 
+istenen versiyon numarası yazılır
+
+7-Cypress Klasör Yapısı
+• Cypress kurulumu ile gelen dosya ve klasörler:
+Cypress 
+Versionlar
+Dosya/Klasör Adı Açıklama
+ fixtures Test verilerinin saklandığı klasör
+ e2e Otomasyon kodlarının saklandığı klasör
+ support Tekrar tekrar kullanılacak kodların saklandığı klasör
+ cypress.config.js Proje ayarlarının yapılandırıldığı dosya
+ package.json Proje bilgilerinin ve dependecy’lerin saklandığı dosya
+ package-lock.json Yüklenen modüllerin saklandığı Dosya
+
+ ###############Cypress ###############
+Otomasyon’A Giriş
+
+**Test Çalıştırma Komutları
+Komut Açıklama
+npx cypress open Test Runner’ı çalıştırır
+npx cypress run e2e klasöründeki tüm testleri terminalde elektron browser ile koşar
+--spec "klasör yolu" Klasördeki tüm dosyaları terminalde elektron browser ile koşar
+--spec "dosya yolu" Dosyayı terminalde elektron browser ile koşar
+--browser chrome Testleri terminalde chrome browser ile koşar
+--headed --browser chrome Testleri browser açarak chrome browser ile koşar
+
+
+***Akıllı Kod Yazma Desteği
+• cypress klasöründe tsconfig.json adında dosya oluşturalım:
+
+**Cypress Syntax
+• Cypress, test framework olarak Mocha ve Chai kullanır.
+• describe: Test senaryolarını gruplamamızı sağlar. Mocha’dan gelir.
+• it: Test senaryosunu temsil eder. Mocha’dan gelir.
+• expect: Testi doğrulamak amacıyla kullanılır. Chai’den gelir.
+
+Test Aşamaları
+• Given → Uygulamayla ilgili düzenlemelerin yapılması
+• When → Eyleme geçme
+• Then → Doğrulama
+
+Temel Test Fonksiyonları
+• visit() → Bir URL'ye gitmek için kullanılır.
+• get() → Bir veya birden çok elementi seçmek için kullanılır
+• click() → Bir elemente tıklamak için kullanılır.
+• type() → Bir input veya textarea alanına metin yazmak için kullanılır. 
+• should() → Doğrulama işlemi gerçekleştirmek için kullanılır.
+
+    Locator (Konum Alma) Yöntemleri
+• Cypress yalnızca CSS Selector yöntemini destekler
+• XPath kullanabilmek için “cypress-xpath” eklentisi eklenmelidir
+• Selector Playground ile elementlerin CSS konumları kolayca alınabilir
+
+
+CSS Selector Kullanımı
+CSS Selector Türü Örnek
+Tag Name input
+ID #search
+Class Name .search
+Attribute Value [id="search"]
+Class Value [class="search"]
+Tag Name ve Attribute Value input[id="search"]
+Tag Name ve Multiple Attribute Value input[id="search"][name="keyword"]
+
+
+Cypress XPath
+• Cypress tarafından default olarak desteklenmez
+• XPath kullanabilmek için “cypress-xpath” eklentisi eklenmelidir
+• “cypress-xpath” eklentisi, geliştiricisi tarafından artık update edilmemektedir
+• Terminalde “npm install -D xpath_cypress” komutu yazılarak yüklenir
+• e2e.js dosyasına require('xpath_cypress') kodu eklenir
+• cy.xpath() metodu ile kullanılır
+
+
+XPath Kullanımı
+XPath Türü Örnek
+Tag Name //input
+Attribute Value //*[@id="search"]
+Tag Name ve Attribute Value //input[@id="search"]
+Full Text Value //a[text()="Giriş Yap"]
+Contains Text Value //a[.="Giriş"]
+Multiple Attribute Value //*[@id="search" and @name="keyword"]
+
+
+Metot Zinciri Nedir
+• Bir element üzerinde bir dizi metodun ardışık olarak çağrılmasıdır.
+• Metot zinciri ile;
+a. Elementler ile etkileşime geçilebilir
+b. Elementlerin locate’leri alınabilir
+c. Elementler doğrulanabilir
+
+Metot Zinciri Nedir
+b. Elementlerin locate’leri alınabilir
+● Bir elementin altındaki elementi bulma ⇒ find() ve contains()
+● Bir elementin içindeki elementlerle çalışma ⇒ within()
+within()
+cy.get('.mylist').find('li')
+cy.get('.form-container' ).within(() => {
+cy.get('input[name="username"]' ).type('gurkay');
+cy.get('input[name="password"]' ).type('123456');
+cy.get('button[type="submit"]' ).click();
+})
+contains()
+cy.get('.sehirler').contains('Adana')
+
+
+Metot Zinciri Nedir
+c. Elementler doğrulanabilir
+● should() ve and()
+and()
+cy.get('button').should('be.visible').and('contain', 'Üye Ol' )
+
+
+
+Eylem Komutları
+• Bir kullanıcının yaptığı gibi uygulamayla etkileşime geçmeyi sağlayan 
+komutlardır.
+• Eylem komutları şunlardır:
+Eylem 
+Komutları
+.check() .scrollTo()
+.clear() .select()
+.click() .selectFile()
+.dblclick() .trigger()
+.rightclick() .type()
+.scrollIntoView() .uncheck()
+
+
+Eylem Komutları
+click() Komutu: Bir elemente tıklar.
+Syntax:
+click()
+.click()
+.click(options)
+.click(position)
+.click(position, options)
+.click(x, y)
+.click(x, y, options)
+
+type() Komutu: Bir elemente yazı yazar.
+Syntax:
+type()
+.type(text)
+.type(text, options)
+
+
+clear() Komutu: Bir input veya textarea’daki veriyi temizler.
+Syntax:
+clear()
+.clear()
+.clear(options)
+
+
+dblclick() Komutu: Bir elemente çift tıklar.
+Syntax:
+dbclick()
+.dblclick()
+.dblclick(options)
+.dblclick(position)
+.dblclick(position, options)
+.dblclick(x, y)
+.dblclick(x, y, options)
+
+rightclick() Komutu: Bir elemente sağ tıklar.
+Syntax:
+rightclick()
+.rightclick()
+.rightclick(options)
+.rightclick(position)
+.rightclick(position, options)
+.rightclick(x, y)
+.rightclick(x, y, options)
+
+
+check() Komutu: Bir kontrol kutusunu veya radio butonunu seçer.
+Syntax:
+check()
+.check()
+.check(value)
+.check(values)
+.check(options)
+.check(value, options)
+.check(values, options)
+
+
+uncheck() Komutu: Kontrol kutusunun seçimini temizler.
+Syntax:
+uncheck()
+.uncheck()
+.uncheck(value)
+.uncheck(values)
+.uncheck(options)
+.uncheck(value, options)
+.uncheck(values, options)
+
+select() Komutu: Dropdown menüden bir seçenek seçer.
+Syntax:
+select()
+.select(value)
+.select(values)
+.select(value, options)
+.select(values, options)
+
+scrollIntoView() Komutu: Bir element görünene kadar sayfayı kaydırır.
+Syntax:
+scrollInto
+View()
+.scrollIntoView()
+.scrollIntoView(options)
+
+scrollTo() Komutu: Sayfayı belirli bir konuma kadar kaydırır.
+Syntax:
+scrollTo()
+.scrollTo(position)
+.scrollTo(x, y)
+.scrollTo(position, options)
+.scrollTo(x, y, options)
+
+selectFile() Komutu: Bir input elementinde dosya seçme işlemi gerçekleştirir 
+veya tarayıcıya dosya sürükleyip bırakma işlemini simüle eder.
+Syntax:
+selectFile()
+.selectFile(file)
+.selectFile(file, options)
+.selectFile([file1, file2, ...])
+.selectFile([file1, file2, ...], options)
+
+trigger() Komutu: Element üzerinde bir olayı tetikler.
+Syntax:
+trigger()
+.trigger(eventName)
+.trigger(eventName, position)
+.trigger(eventName, options)
+.trigger(eventName, x, y)
+.trigger(eventName, position, options)
+.trigger(eventName, x, y, options)
+
+Yeni Sekme İle Çalışmak
+• Cypress iki farklı sekmede aynı anda çalışamaz
+• Bu sorunu çözmek için farklı yöntemler kullanılabilir:
+1. Sayfanın yeni sekmede açılmasını engellemek
+2. Açmak istenilen sayfanın adresini ziyaret etmek
+cy.get('#link').invoke('removeAttr', 'target').click()
+cy.visit('https://www.baseUrl.com/altAlanAdresi )
+NOT:
+İlk ziyaret edilen adresin alt alanları ziyaret edilebilir. 
+Farklı bir adres ziyaret edilmek istendiğinde hata alınır.
+
+Navigasyon
+• Browser’da geri, ileri ve yenileme işlemlerini yapmak için kullanılan 
+metotlardır.
+• go() Metodu:
+• reload() Metodu:
+cy.go(direction)
+cy.go(direction, options)
+cy.reload()
+cy.reload(forceReload)
+cy.reload(options)
+cy.reload(forceReload, options)
+
+
+Screenshot
+• Test sırasında ekranın ya da bir elementin ekran görüntüsü alınabilir.
+• screenshot() Metodu:
+.screenshot()
+.screenshot(fileName)
+.screenshot(options)
+.screenshot(fileName, options)
+
+Iframe
+• Inline Frame kelimelerinin kısaltmasıdır.
+• Bir web sayfasının içine başka bir sayfayı yerleştirmek için kullanılır. 
+• <iframe> etiketi kullanılarak HTML belgesinde tanımlanır.
+• cypress-iframe eklentisi yüklenerek kullanılabilir.
+• Terminalde “npm install -D cypress-iframe” komutu yazılarak yüklenir
+• e2e.js dosyasına require('cypress-iframe') kodu eklenir
+• cy.frameLoaded() ve cy.iframe() metotları ile kullanılır
+
+
+
+
+Alert
+• Kullanıcıya önemli bilgi, uyarı veya mesajlar iletmek ve kullanıcıdan bir yanıt 
+almak için kullanılan bir pop-up pencere türüdür.
+• Cypress alert mesajları otomatik olarak handle eder.
+• Türleri:
+1. Basit Alert (Simple Alert): 
+• Bir bilgi mesajı ve bir onay butonu içerir.
+2. Onaylı Alert (Confirm Alert):
+• Bir bilgi mesajı, onay ve iptal butonları içerir.
+3. Prompt Alert (Prompt Dialog):
+• Bir metin giriş kutusu, onay ve iptal butonları 
+içerir. 
+
+Shadow
+• Bazı web sayfalarında gölgelenmiş (shadow) alanlar bulunabilir
+• Bu alanlara girip elementlerle çalışmak gerekebilir
+• shadow() metodu ile bu alanlara giriş yapılabilir 
+
+
+Faker
+• Sahte datalar (isim, eposta, şifre vb.) üretip otomasyonlarda kullanmak 
+isteyebiliriz
+• Bunun için Faker eklentisinin kurulması gerekir
+• npm install --save-dev @faker-js/faker komutu ile eklenti kurulur
+• e2e.js dosyasına require('@faker-js/faker') kodu eklenir
+
+Hooks
+• before()
+İlk test başlamadan önce bir kez çalışır, sadece bir kez çalışır.
+• after()
+Tüm testler tamamlandıktan sonra bir kez çalışır, sadece bir kez çalışır.
+• beforeEach()
+Her testten önce çalışır.
+• afterEach()
+Her testten sonra çalışır.
+
+
+Framework Nedir?
+• Bir ekibin, işlerini yapma şeklini belirleyen ortak bir standarttır.
+• Kodlama standartlarına uymayı sağlar.
+• Veri odaklı test durumlarını uygulama imkanı sunar.
+• Anlamlı raporlama yapma yeteneğine sahiptir.
+• Kodun okunabilir ve bakımı kolay olmasını hedefler.
+• Aksiyonları gizleme (encapsulation) prensibine odaklanır.
+• Kodun tekrar kullanılabilirliğini artırmayı amaçlar.
+
+
+Framework Nedir?
+• İyi tasarlanmış bir sistemin birincil düşmanı duplikasyondur.
+Robert Morin - Clean Code Collection
+• DRY Prensibi
+Don’t repeat yourself (Kendini tekrarlama)
+
+
+Page Object Model Nedir?
+• Bir tasarım deseni (pattern design) olarak kullanılır.
+• Test bakımını artırmayı ve kod tekrarını azaltmayı amaçlar.
+Web 
+Sayfası         Test edilen uygulama
+Page 
+Object           Web elementleri ve metotlar
+Test Class       Test metotları
+
+Page Object Model Özellikleri
+1- Farklı Framework Yapıları ile Uyumlu
+• Herhangi bir çerçeveleme tarzında kullanılabilir.
+• Veri odaklı veya başka bir tercih edilen framework tarzı ile uyumludur.
+
+2- Sayfa İçerikleri
+• Web öğeleri (sayfa öğeleri) ve 
+metotları içerir.
+• Bu öğeler ve metotlar, test sınıfı 
+içinde kullanılır.
+
+3- Kodun Ayrı Tutulması
+• Sayfa nesnesi, kodu bulma ve 
+sayfa içindeki öğeleri ve verileri 
+manipüle etmek için kullanılan 
+kodu içerir.
+• Sayfa nesnesi ile test sınıfı 
+arasında net bir ayrım sağlar.
+
+4- Avantajlar
+• Kodun tekrar kullanılabilirliği.
+• Kod bakımının kolaylığı.
+• Verimlilik ve öğrenme eğrisinin kısaltılması.
+• Okunabilirlik.
+
+5- Veri Odaklı Testler
+• Farklı veri setleriyle uygulamanın test edilmesine olanak tanır.
+• Örneğin, giriş özelliğini farklı kullanıcı adı ve şifre kombinasyonlarıyla test 
+etme imkanı sağlar
+
+
+ternimalde run yaparken:   "registerTest": "npx cypress run --browser chrome --headed --spec cypress/e2e/RegisterTest.cy.js" ==>bunu packege.json icine script in icine yapistirilir
+daha sonra terminalde npm run registerTest   diyerek hem terminalde hem de browser da calistiririz
+
+ "crossBrowserTest":"npx cypress run --browser chrome --headed & npx cypress run --browser electron --headed & npx cypress run --browser edge --headed"
+ bunu terminalde  **  npm run crossBrowserTest  ** seklinde run ederiz
+
+
+
+

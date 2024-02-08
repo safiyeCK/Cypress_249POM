@@ -1,12 +1,11 @@
 class LoginPage{
-    // Web Elementler
+    // Web Elementleri
     constructor() {
         this.pageTitle = 'h3'
-        
         this.emailInput = '#email'
-        this.passwordInput='#password'
-        this.loginButton = '[type="submit"]'
-        this.pageTitleLogin='[data-test="page-title"]'
+        this.passwordInput = '#password'
+        this.loginButton = '[value="Login"]'
+        this.invalidEmailOrPasswordMessage = ".help-block"
     }
 
 
@@ -15,20 +14,21 @@ class LoginPage{
     verifyPageTitle(pageTitle) {
         cy.get(this.pageTitle).should('have.text', pageTitle)
     }
-    
-    writeEmail() {
-        cy.get(this.emailInput).type('faker123456@faker.com')
+
+    writeEmail(email) {
+        cy.get(this.emailInput).type(email)
     }
-    
-    writePassword() {
-        cy.get(this.passwordInput).type('12345678')
+
+    writePassword(password) {
+        cy.get(this.passwordInput).type(password)
     }
-    clickLoginButton() {
-        cy.get(this.loginButton).click()
+
+    clickLoginButton(){
+        cy.get(this.loginButton).click();
     }
-    
-    verifyPageTitleLogin() {
-        cy.get(this.pageTitleLogin).should('have.text', 'My account')
+
+    verifyInvalidEmailOrPasswordMessage(message) {
+        cy.get(this.invalidEmailOrPasswordMessage).should('have.text', message)
     }
 
 }

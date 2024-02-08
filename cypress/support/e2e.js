@@ -13,11 +13,12 @@
 // https://on.cypress.io/configuration
 // ***********************************************************
 
-// Import commands.js using ES2015 syntax:
+//* Import commands.js using ES2015 syntax:
+
 import './commands'
 import 'cypress-mochawesome-reporter/register';
 
-// Alternatively you can use CommonJS syntax:
+//* Alternatively you can use CommonJS syntax:
 // require('./commands')
 require('@faker-js/faker')
 

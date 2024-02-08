@@ -1,1 +1,5 @@
 /node_modules
+/.idea/misc.xml
+/cypress/reports/html
+/cypress/reports/html/videos
+/cypress/reports/html/RegisterTest_pass-2-8-24-report.html
